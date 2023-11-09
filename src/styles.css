@@ -363,6 +363,10 @@ a:hover{
   border-radius: 0px
 }
 
+#slideOut1 p{
+font-size: 17px;
+}
+
 .dark-mode .modal-content::-webkit-scrollbar-thumb {
   background: #ab0cdf
 }
