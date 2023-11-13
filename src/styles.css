@@ -41,7 +41,7 @@ h1, h2, h3, span, p, h5, h6{
   color:#7736ff;
 }
 .logo {
-  background-image: url('./img/logo.png');
+
   background-repeat: no-repeat;
   width: 100%;
   min-height: 70px;
@@ -3925,12 +3925,12 @@ form {
 }
 
 
-.embed-responsive.small {
+.embed-responsive.small iframe {
     margin-top: 0px;
     margin-bottom: 140px;
     height: 100%;
     min-height: 800px;
-    border:1px solid
+
 }
 
 
