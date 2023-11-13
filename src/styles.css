@@ -364,7 +364,7 @@ a:hover{
 }
 
 #slideOut1 p{
-font-size: 17px;
+font-size: 16px;
 }
 
 .dark-mode .modal-content::-webkit-scrollbar-thumb {
@@ -1212,13 +1212,13 @@ font-size: 0px !important;
 
 #slideOut1 {
 position: fixed;
-right: -370px;
+right: -540px;
 transition-property: all;
 transition-duration: 0.5s;
 transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 margin: 0;
 height: unset;
-top: 21%;
+top: 16%;
 z-index: 999;
 }
 
@@ -1425,9 +1425,8 @@ outline: 0;
 -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.6);
 box-shadow: none;
 z-index: 99999;
-
-height: 500px;
-width: 370px;
+height: 630px;
+width: 540px;
 margin: 0;
 padding-left: 1em;
 padding-right: 1em;
@@ -1438,6 +1437,16 @@ overflow-x: hidden;
 border-top-left-radius: 1rem;
 border-bottom-left-radius: 1rem;
 }
+.modal-body.padding{
+  margin-top:2em
+}
+
+
+
+#slideOut1 .modal-content::-webkit-scrollbar {
+    width: 0px;
+}
+
 
 #slideOut1 .modal-header {
 padding: 15px;
@@ -2816,7 +2825,7 @@ top: 130px;
     max-width: 60px;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.3);
     background: #ff7a41;
-    max-height: 49px;
+    max-height: unset;
     display: flex;
 
     align-items: center;
@@ -3974,9 +3983,14 @@ body.dark-mode {
 }
 
 .dark-mode .fancy-short-banner-five .bg-wrapper{
-  background: #ab0cdf;
+  background: #0f0e11;
+border: 3px solid #ab0cdf;
+
 }
 
+.navbar i:hover{
+  color:#ff7a41
+}
 
 .dark-mode .scroll-top{
     background: #ab0cdf;

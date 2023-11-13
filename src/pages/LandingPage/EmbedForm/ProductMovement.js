@@ -103,7 +103,7 @@ const ProductMovement = () => {
     <div class="col-lg-12 text-center text-lg-start aos-init aos-animate" data-aos="fade-right">
       <div class="subscribe-form">
           <Form>
-            <input type="email" placeholder="Please enter your question!"/>
+            <input type="text" placeholder="Please enter your question!"/>
 
           </Form>
 
