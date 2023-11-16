@@ -13,6 +13,9 @@ import TopNav from "./components/nav/TopNav.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
+import AOS from 'aos';
+import "aos/dist/aos.css";
+
 import {
   LOOKER_MODEL,
   LOOKER_EXPLORE,
@@ -20,9 +23,19 @@ import {
   PRODUCT_MOVEMENT_VIS_DASHBOARD_ID,
 } from "./utils/constants";
 
+
+
+
 import { sortDateFilterList } from "./utils/globalFunctions";
 
-  export const Main = ({  handleSubmit, inputValue, setInputValue, url, handleSearchButton, setUrl }) => {
+export const Main = ({ inputValue, setInputValue, url }) => {
+
+  useEffect(() => {
+  AOS.init({
+    duration: 1200,
+  });
+  }, []);
+
   const { core40SDK: sdk } = useContext(ExtensionContext);
 
   const [currentNavTab, setCurrentNavTab] = useState("dashboard");
@@ -369,32 +382,21 @@ import { sortDateFilterList } from "./utils/globalFunctions";
     }
   }, [selectedDateFilter]);
 
-
-
-
-
   return (
     <>
-    <TopNav />
-    <NavbarMain/>
+      <TopNav />
+      <NavbarMain />
       <Container fluid className="mt-50 padding-0">
-
-
-          <Template1
+        <Template1
           inputValue={inputValue}
           setInputValue={setInputValue}
-        
           url={url}
-          setUrl={setUrl}
-          />
+        />
+      </Container>
 
-    </Container>
-
-
-<ToTopButton/>
+      <ToTopButton />
 
       <SideForm />
-
-        </>
+    </>
   );
 };
