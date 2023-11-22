@@ -7,6 +7,8 @@ import { Spinner } from "react-bootstrap";
 import AOS from 'aos';
 import "aos/dist/aos.css";
 
+import Tilt from 'react-parallax-tilt';
+
 const Explore = styled.div`
   width: 100%;
   min-height: unset;
@@ -110,8 +112,14 @@ const EmbedTable = ({ queryId, queryUrl, inputValue, setInputValue }) => {
         el.innerHTML = "";
         LookerEmbedSDK.init(hostUrl);
 
-        // const build = `${hostUrl}/embed/query/rebecca_thompson_project/order_items?qid=${queryId}&sdk=2&embed_domain=${hostUrl}&sandboxed_host=true`;
-        const build = queryUrl;
+
+        // const build = queryUrl;
+
+        const build = `https://bytecodeef.looker.com/embed/explore/${queryUrl}`
+
+
+
+
 
         LookerEmbedSDK.createExploreWithUrl(build)
           .appendTo(el)
@@ -128,18 +136,27 @@ const EmbedTable = ({ queryId, queryUrl, inputValue, setInputValue }) => {
 
 
 
-  return (
-    <Wrapper>{queryUrl ? <Explore ref={embedCtrRef} /> : <div class="position-relative d-flex justify-content-center action"><h2 class="mr-5">I'm getting your query ready!</h2>
-    <div class="illustration-holder move">
-    <img src="https://mini.bytecode.io/images/ils_05.svg" alt="" class="main-illustration w-100 shape0" />
-    <img src="https://mini.bytecode.io/images/ils_05_1.svg" alt="" class="shapes shapeone" />
-    <img src="https://mini.bytecode.io/images/ils_05_2.svg" alt="" class="shapes shapetwo aos-init aos-animate" data-aos="fade-up" data-aos-anchor=".fancy-feature-two" data-aos-delay="100" data-aos-duration="2000" />
-    <img src="https://mini.bytecode.io/images/ils_05_3.svg" alt="" class="shapes shape-three aos-init aos-animate" data-aos="fade-up" data-aos-anchor=".fancy-feature-two" data-aos-delay="150" data-aos-duration="2000" />
-    <img src="https://mini.bytecode.io/images/ils_05_4.svg" alt="" class="shapes shape-four" />
-    <img src="https://mini.bytecode.io/images/ils_05_5.svg" alt="" class="shapes shape-five" />
-    </div>
 
-    </div>}</Wrapper>
+
+
+  return (
+    <Wrapper>{queryUrl ? <Explore ref={embedCtrRef} /> :
+
+  <div class="col-lg-5 col-md-12 text-lg-start  funStuff">
+
+
+<div className="illustration-holder d-inline-block ms-xxl-5 mt-40 lg-mt-10">
+<Tilt>
+<img src="https://mini.bytecode.io/images/ils_08.svg" alt="" className="transform-img-meta"/>
+</Tilt>
+<img src="https://mini.bytecode.io/images/ils_08_1.svg" alt="" className="shapes oneShape"/>
+</div>
+
+</div>
+
+
+
+  }</Wrapper>
   );
 };
 

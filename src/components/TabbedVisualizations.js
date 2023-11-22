@@ -144,6 +144,19 @@ const TabbedVisualizations = ({ dashboardId, dimensionToggleFields }) => {
 
   return (
     <Container fluid className="padding-0">
+
+    {/*<div class="position-relative d-flex justify-content-center action"><h2 class="mr-5">I'm getting your query ready!</h2><div class="illustration-holder move">
+    <img src="https://mini.bytecode.io/images/ils_05.svg" alt="" class="main-illustration w-100 shape0" />
+    <img src="https://mini.bytecode.io/images/ils_05_1.svg" alt="" class="shapes shapeone" />
+    <img src="https://mini.bytecode.io/images/ils_05_2.svg" alt="" class="shapes shapetwo aos-init aos-animate" data-aos="fade-up" data-aos-anchor=".fancy-feature-two" data-aos-delay="100" data-aos-duration="2000" />
+    <img src="https://mini.bytecode.io/images/ils_05_3.svg" alt="" class="shapes shape-three aos-init aos-animate" data-aos="fade-up" data-aos-anchor=".fancy-feature-two" data-aos-delay="150" data-aos-duration="2000" />
+    <img src="https://mini.bytecode.io/images/ils_05_4.svg" alt="" class="shapes shape-four" />
+    <img src="https://mini.bytecode.io/images/ils_05_5.svg" alt="" class="shapes shape-five" />
+    </div>
+
+    </div>*/}
+
+
       <Container fluid className="padding-0 innerTab">
         {isLoading ? (
           <Spinner />

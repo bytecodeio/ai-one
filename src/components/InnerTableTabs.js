@@ -14,6 +14,10 @@ const InnerTableTabs = ({
   };
 
   return (
+
+
+
+
     <Container fluid className="padding-0">
       <Container fluid className="padding-0 innerTab">
         <Tabs

@@ -393,6 +393,9 @@ const Template1 = ({
 
   const [inputValue, setInputValue] = useState("");
 
+
+  console.log(inputValue, "hi")
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -402,14 +405,16 @@ const Template1 = ({
         "https://us-central1-ml-accelerator-dbarr.cloudfunctions.net/function-1",
         {
           headers: {
-            "Content-type": "application/x-www-form-urlencoded",
+            "Content-type": "application/json",
           },
           method: "POST",
-          body: inputValue,
+          body: `{"inputValue" : "${inputValue}"}`,
         }
       );
 
-      setQueryUrl(res.body);
+      setQueryUrl(res.body)
+      console.log(res.body, "this is url")
+
 
       context.push({
         question: inputValue,
@@ -419,9 +424,6 @@ const Template1 = ({
       extensionSDK.saveContextData(context);
     };
     initialize();
-
-
-  console.log(context, "sdfubdfsubidsbiufdbsufuisduidfsubi")
 
   };
 
