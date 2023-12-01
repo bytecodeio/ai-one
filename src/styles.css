@@ -13,6 +13,117 @@ body, html{
 
 }
 
+.subscribe-form form input{
+  position: relative;
+}
+
+.btn-go  {
+    background: #2cccff;
+    border-radius: 7px;
+    color: #fff;
+
+    font-size: 18px;
+    letter-spacing: .6px;
+    line-height: 55px;
+    padding: 0 45px;
+    position: relative;
+    text-transform: capitalize;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+}
+
+.btn-go {
+    font-size: 17px;
+    line-height: 50px;
+    padding: 0 35px;
+    position: absolute;
+    top: 5px;
+right: 16px;
+}
+
+.btn-go:hover {
+    background: #ff7a41;
+    color: #fff;
+}
+.ripple-btn {
+    position: relative;
+}
+.tran3s {
+    transition: all .3s ease-in-out;
+}
+.demo-btn {
+    background: rgba(145,59,255,.14);
+    border-radius: 9px;
+    color: #913bff;
+
+    font-size: 18px;
+    line-height: 55px;
+    padding: 7px 24px;
+        position: absolute;
+        right: -66%;
+        animation: jumpThree 3s linear infinite;
+        top: 12px;
+    font-weight: 500;
+}
+
+@media (max-width:1024px){
+  .demo-btn {
+    right:0
+  }
+}
+
+
+.demo-btn:after {
+    border-color:rgba(145,59,255,.14);
+}
+
+.demo-btn:after {
+    border-width: 0 0 20px 24px;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    top: auto;
+    left: 20px;
+    bottom: -20px;
+}
+
+
+.demo-btn:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+  }
+
+.funStuff{
+  position: relative;
+}
+
+.ripple-btn:before,
+.btn-go:before  {
+    background: hsla(0,0%,100%,.5);
+    border-radius: 50%;
+    content: "";
+    height: 100px;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    width: 100px;
+}
+
+.ripple-btn:hover:before,
+.btn-go:hover:before  {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
+
 body{
   overflow-x:hidden;
 }
@@ -25,7 +136,9 @@ body{
     opacity: 1;
 }
 
-
+.hidden{
+  display: none
+}
 
 h1, h2, h3, span, p, h5, h6{
   font-family: 'Montserrat', sans-serif;
@@ -4124,7 +4237,7 @@ border: 3px solid #ab0cdf;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
- 
+
     filter: blur(100px);
     opacity: 0.65;
 }

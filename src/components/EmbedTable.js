@@ -9,6 +9,9 @@ import "aos/dist/aos.css";
 
 import Tilt from 'react-parallax-tilt';
 
+
+
+
 const Explore = styled.div`
   width: 100%;
   min-height: unset;
@@ -26,7 +29,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const EmbedTable = ({ queryId, queryUrl, inputValue, setInputValue }) => {
+const EmbedTable = ({ queryId, queryUrl, inputValue, setInputValue,  showMenu2, setShowMenu2 }) => {
   const { core40SDK: sdk, extensionSDK, extensionContext } = useContext(ExtensionContext);
 
   useEffect(() => {
@@ -143,6 +146,10 @@ const EmbedTable = ({ queryId, queryUrl, inputValue, setInputValue }) => {
     <Wrapper>{queryUrl ? <Explore ref={embedCtrRef} /> :
 
   <div class="col-lg-5 col-md-12 text-lg-start  funStuff">
+
+<div className={showMenu2 ? "" : "hidden"}>
+<span class="demo-btn ripple-btn tran3s" data-aos="fade-up">Please wait while I get your query ready!</span>
+</div>
 
 
 <div className="illustration-holder d-inline-block ms-xxl-5 mt-40 lg-mt-10">

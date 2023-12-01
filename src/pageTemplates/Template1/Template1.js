@@ -70,6 +70,7 @@ const Template1 = ({
   const [currentInnerTab, setCurrentInnerTab] = useState(0);
   const [isFilterChanged, setIsFilterChanged] = useState(false);
   const [queryUrl, setQueryUrl] = useState("");
+    const [showMenu2, setShowMenu2] = useState();
   function handleClearAll() {}
 
   useEffect(() => {
@@ -394,11 +395,43 @@ const Template1 = ({
   const [inputValue, setInputValue] = useState("");
 
 
-  console.log(inputValue, "hi")
+  console.log(inputValue, "input value")
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setShowMenu2(!showMenu2)
+    const context = extensionSDK.getContextData();
+    const initialize = async () => {
+      let res = await extensionSDK.serverProxy(
+        "https://us-central1-ml-accelerator-dbarr.cloudfunctions.net/function-1",
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+          method: "POST",
+          body: `{"inputValue" : "${inputValue}"}`,
+        }
+      );
 
+      setQueryUrl(res.body)
+      console.log(res.body, "this is url")
+
+
+      context.push({
+        question: inputValue,
+        url: res,
+        timestamp: Date.Now(),
+      });
+      extensionSDK.saveContextData(context);
+    };
+    initialize();
+
+  };
+
+
+  const handleSearchButton = (event) => {
+    event.preventDefault();
+    setShowMenu2(!showMenu2)
     const context = extensionSDK.getContextData();
     const initialize = async () => {
       let res = await extensionSDK.serverProxy(
@@ -430,6 +463,8 @@ const Template1 = ({
 
 
 
+
+
   return (
     <Container fluid>
       <div class="row align-items-center mb-3 mb-5 pb-1">
@@ -457,7 +492,7 @@ const Template1 = ({
               ]}
               wrapper="span"
               speed={50}
-              repeat={Infinity}
+
             />
           </h1>
         </motion.div>
@@ -478,7 +513,9 @@ const Template1 = ({
                       onChange={(event) => setInputValue(event.target.value)}
                       value={inputValue}
                       placeholder="Please enter your question!"
+
                     />
+                  <a class="btn-go" onClick={handleSearchButton}>Go!</a>
                   </form>
                 </div>
               </div>
@@ -496,6 +533,8 @@ const Template1 = ({
         />
       </div>
 
+
+
       <Container>
         <div class="embed-responsive embed-responsive-16by9 small col-lg-12 col-md-12 col-sm-12 explore">
           <EmbedTable
@@ -503,6 +542,8 @@ const Template1 = ({
             setInputValue={setInputValue}
             // queryId={"boIkRy4qlZmA96P5FSuMqH"}
             queryUrl={queryUrl}
+            showMenu2={showMenu2}
+            setShowMenu2={setShowMenu2}
           />
         </div>
       </Container>
