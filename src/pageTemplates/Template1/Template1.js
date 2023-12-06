@@ -403,7 +403,7 @@ const Template1 = ({
     const context = extensionSDK.getContextData();
     const initialize = async () => {
       let res = await extensionSDK.serverProxy(
-        "https://us-central1-ml-accelerator-dbarr.cloudfunctions.net/function-1",
+        "https://us-central1-hackathon2023-lookerai.cloudfunctions.net/hackathon-lookerai",
         {
           headers: {
             "Content-type": "application/json",
@@ -435,7 +435,7 @@ const Template1 = ({
     const context = extensionSDK.getContextData();
     const initialize = async () => {
       let res = await extensionSDK.serverProxy(
-        "https://us-central1-ml-accelerator-dbarr.cloudfunctions.net/function-1",
+        "https://us-central1-hackathon2023-lookerai.cloudfunctions.net/hackathon-lookerai",
         {
           headers: {
             "Content-type": "application/json",
