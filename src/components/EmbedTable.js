@@ -118,7 +118,7 @@ const EmbedTable = ({ queryId, queryUrl, inputValue, setInputValue,  showMenu2, 
 
         // const build = queryUrl;
 
-        const build = `https://hack.looker.com/embed/explore/${queryUrl}`
+        const build = `https://bytecodeef.looker.com/embed/explore/${queryUrl}`
 
 
 

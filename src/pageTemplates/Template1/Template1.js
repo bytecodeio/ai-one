@@ -387,6 +387,8 @@ const Template1 = ({
     }, 600);
   };
 
+
+
   const [slide, setSlide] = React.useState();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -403,7 +405,7 @@ const Template1 = ({
     const context = extensionSDK.getContextData();
     const initialize = async () => {
       let res = await extensionSDK.serverProxy(
-        "https://us-central1-hackathon2023-lookerai.cloudfunctions.net/hackathon-lookerai",
+        "https://us-central1-ml-accelerator-dbarr.cloudfunctions.net/function-1",
         {
           headers: {
             "Content-type": "application/json",
@@ -432,10 +434,11 @@ const Template1 = ({
   const handleSearchButton = (event) => {
     event.preventDefault();
     setShowMenu2(!showMenu2)
-    const context = extensionSDK.getContextData();
+
+  let  context = extensionSDK.getContextData();
     const initialize = async () => {
       let res = await extensionSDK.serverProxy(
-        "https://us-central1-hackathon2023-lookerai.cloudfunctions.net/hackathon-lookerai",
+        "https://us-central1-ml-accelerator-dbarr.cloudfunctions.net/function-1",
         {
           headers: {
             "Content-type": "application/json",
@@ -448,21 +451,89 @@ const Template1 = ({
       setQueryUrl(res.body)
       console.log(res.body, "this is url")
 
-
       context.push({
         question: inputValue,
         url: res,
         timestamp: Date.Now(),
       });
       extensionSDK.saveContextData(context);
+
+
     };
     initialize();
 
   };
 
+// 
+//   useEffect(() => {
+//
+//   const initialize = async () => {
+//   let userInfo = await getUser();
+//   setUser(userInfo);
+//   let contextData = getContextData();
+//   if (contextData) {
+//     let { application, application_tags, tabs, tab_tags } = contextData;
+//     setApplicationInfo(application);
+//     let fieldsByTag = await fetchLookMlFields(
+//       application.model,
+//       application.explore
+//     );
+//     initializeTabs(tabs, tab_tags, fieldsByTag, application);
+//     initializeAppTags(application_tags, fieldsByTag, application, userInfo);
+//     setIsFetchingLookmlFields(false);
+//   }
+// };
+//
+// try {
+//   initialize();
+// } catch (e) {
+//   console.error("Error fetching Looker filters and fields", e);
+// }
+// }, []);
+//
+//
+// const getContextData = () => {
+//   return extensionContext.extensionSDK.getContextData();
+// };
 
-
-
+//
+//   const [reload, setReload] = useState({});
+//   const [setIsLoadingContextData] = useState(true);
+// const fallbackAppConfig = {
+//   showDashboardFilters: true,
+//   dashboardTheme: "Looker",
+//   showTabIcons: false,
+//   tabs: [
+//     {
+//       name: "",
+//       basicContentFolderId: null,
+//     },
+//   ],
+// };
+// const [setAppConfig] = useState();
+// const reloadPage = (val) => {
+//   setAppConfig({
+//     ...val,
+//   });
+// };
+// const getContextData = async () => {
+//   console.log("refreshing it after ");
+//   setIsLoadingContextData(true);
+//   try {
+//     const contextData = await extensionSDK.getContextData();
+//     setAppConfig({
+//       ...fallbackAppConfig,
+//       ...contextData,
+//     });
+//   } catch (e) {
+//     setAppError(`Error loading app context data`);
+//     console.error("Error loading app context data: ", e);
+//   }
+//   setIsLoadingContextData(false);
+// };
+// useEffect(() => {
+//   getContextData();
+// }, [reload]);
 
 
   return (
